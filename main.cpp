@@ -64,6 +64,7 @@ double evalPostfix(const vector<Token>& tokens) {
 // Main
 
 int main() {
+    /*
     string line;
     getline(cin, line);
 
@@ -87,6 +88,14 @@ int main() {
         cout << "FORMAT: NEITHER\n";
         cout << "ERROR: invalid expression\n";
     }
+    */
+
+    ArrayStack<int> test;
+
+    test.push(1);
+    test.push(2);
+    test.push(3);
+    test.push(4);
 
     return 0;
 }
