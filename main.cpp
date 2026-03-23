@@ -19,6 +19,28 @@ struct Token {
 vector<Token> tokenize(const string& line) {
     vector<Token> tokens;
     // TODO
+    string curr;
+    for (char c: line) {
+        if (isspace(c)) {
+            if (!curr.empty()) {
+                tokens.push_back({curr});
+                curr.clear();
+            }
+        }
+        else if (isdigit(c))
+            curr += c;
+        else {
+            if (!curr.empty()) {
+                tokens.push_back({curr});
+                curr.clear()
+            }
+            string op(1, c);
+            tokens.push_back({op});
+        }
+    }
+    if (!curr.empty())
+        tokens.push_back({curr});
+
     return tokens;
 }
 
@@ -30,6 +52,10 @@ bool isOperator(const string& s) {
 
 int precedence(const string& op) {
     // TODO
+    if (op == "+"||op == "-")
+        return 1;
+    if ( op == "*"||op == "/")
+        return 2;
     return 0;
 }
 
@@ -64,7 +90,7 @@ double evalPostfix(const vector<Token>& tokens) {
 // Main
 
 int main() {
-    /*
+
     string line;
     getline(cin, line);
 
@@ -88,14 +114,27 @@ int main() {
         cout << "FORMAT: NEITHER\n";
         cout << "ERROR: invalid expression\n";
     }
-    */
 
+
+    /*
     ArrayStack<int> test;
 
     test.push(1);
+    test.push(5);
     test.push(2);
-    test.push(3);
-    test.push(4);
+    test.push(6);
+
+    cout<<"Top element: "<<test.top()<<endl;
+    cout<<"Stack size: "<<test.size()<<endl;
+    test.pop();
+    cout<<"Top after one pop: "<<test.top()<<endl;
+    cout<<"Stack size after one pop: "<<test.size()<<endl;
+
+    while (!test.empty())
+        test.pop();
+    cout<<"Stack empty: "<<(test.empty() ? "Yes" : "No")<<endl;
+
+    */
 
     return 0;
 }
