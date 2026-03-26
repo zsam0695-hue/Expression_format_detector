@@ -21,20 +21,20 @@ vector<Token> tokenize(const string& line) {
     // TODO
     string curr;
     for (char c: line) {
-        if (isspace(c)) {
+        if (isspace(c)) {//method from #include <cctype>, _ctype.h
             if (!curr.empty()) {
                 tokens.push_back({curr});
                 curr.clear();
             }
         }
-        else if (isdigit(c))
+        else if (isdigit(c))//method from #include <cctype>, _ctype.h
             curr += c;
         else {
             if (!curr.empty()) {
                 tokens.push_back({curr});
-                curr.clear()
+                curr.clear();
             }
-            string op(1, c);
+            string op = string(1, c);/////////
             tokens.push_back({op});
         }
     }
@@ -55,7 +55,7 @@ int precedence(const string& op) {
     if (op == "+"||op == "-")
         return 1;
     if ( op == "*"||op == "/")
-        return 2;
+        return 2; //higher precedence
     return 0;
 }
 
@@ -63,7 +63,21 @@ int precedence(const string& op) {
 
 bool isValidPostfix(const vector<Token>& tokens) {
     // TODO
-    return false;
+    int digitCount = 0;
+    int opCount = 0;
+    for (Token t: tokens) {
+        if (isdigit(t.value[0]))
+            digitCount++;
+        else if (isOperator(t.value)) {
+            opCount++;
+            if (opCount >= digitCount)
+                return false;
+        }
+        else
+            return false;
+
+    }
+    return digitCount - 1 == opCount && opCount > 1;
 }
 
 bool isValidInfix(const vector<Token>& tokens) {
@@ -98,8 +112,9 @@ int main() {
 
     if (isValidPostfix(tokens)) {
         cout << "FORMAT: POSTFIX\n";
-        cout << "RESULT: " << evalPostfix(tokens) << "\n";
+       // cout << "RESULT: " << evalPostfix(tokens) << "\n";
     }
+    /*
     else if (isValidInfix(tokens)) {
         vector<Token> postfix = infixToPostfix(tokens);
         cout << "FORMAT: INFIX\n";
@@ -109,7 +124,7 @@ int main() {
         }
         cout << "\n";
         cout << "RESULT: " << evalPostfix(postfix) << "\n";
-    }
+    }*/
     else {
         cout << "FORMAT: NEITHER\n";
         cout << "ERROR: invalid expression\n";

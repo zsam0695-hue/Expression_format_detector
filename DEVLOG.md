@@ -21,3 +21,9 @@ Entry 03/23/2026
 - Bugs/Issues: I ran into the opposite issue from the testing  last time. I was trying to use the method `push()` from the `ArrayStack.h` in the `tokenize` method, but this time I needed the opposite, since it used a vector and needed to use `push_back()`.
 - Tested: I finished testing all of the methods from the `ArrayStack.h`, but my computer is dying and won't get a chance to test my `tokenize` and `precedence` methods.
 - Fixed/Improved: Didn't really have anything that needed fixing, at least not that I know of yet, except for the usage of `push()` and `push_back()` when it came to the `tokenize` method.
+
+Entry 03/25/2026
+- Worked on: Tested and looked over the `tokenize` and `precedence` methods, changed small stuff. I also started and had enough time to finish the `isValidPostfix` method as well.
+- Bugs/Issues: Not a bug, but when writing the `tokenize` method I wanted to write `char op = c` then got an error and realized it was since the type I'm pushing back to is `string`. But then I couldn't write `string op = c`.
+- Tested: I tested `tokenize` and tested `isValidPostfix` as well, although the testing code was already written for that, just had to comment some stuff out so it wouldn't give me any errors for undefined methods.
+- Fixed/Improved: Improved some lines of the `tokenize` method, like writing `string op = string(1, c)`. I also realized for `isValidPostfix` to be true, there should only be 1 more digit than there are operators. Also, there should be at least 1 operator, like just "4" is not valid. Otherwise, it should be false.
