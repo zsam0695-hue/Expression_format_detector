@@ -34,7 +34,7 @@ vector<Token> tokenize(const string& line) {
                 tokens.push_back({curr});
                 curr.clear();
             }
-            string op = string(1, c);/////////
+            string op = string(1, c);
             tokens.push_back({op});
         }
     }
@@ -82,7 +82,37 @@ bool isValidPostfix(const vector<Token>& tokens) {
 
 bool isValidInfix(const vector<Token>& tokens) {
     // TODO
-    return false;
+    int equilibrium = 0; //for parenthesis
+    bool nextOp = true; //next token should be a digit or ( for true and ) or an operator for false;
+    for (Token t: tokens) {
+        if (isdigit(t.value[0])) {
+            if (!nextOp)
+                return false;
+            nextOp = false;
+        }
+        else if (isOperator(t.value)) {
+            if (nextOp)
+                return false;
+            nextOp = true;
+        }
+        else if (t.value == "(") {
+            if (!nextOp)
+                return false;
+            equilibrium++;
+            nextOp = true;
+        }
+        else if (t.value == ")") {
+            if (nextOp)
+                return false;
+            equilibrium--;
+            if (equilibrium < 0)
+                return false;
+            nextOp = false;
+        }
+        else
+            return false;
+    }
+    return equilibrium == 0 && !nextOp;
 }
 
 // Conversion
