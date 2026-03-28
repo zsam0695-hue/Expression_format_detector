@@ -36,5 +36,11 @@ Entry 03/25/2026
 Entry 03/27/2026
 - Worked on: I started and hopefully completed the `isValidInfix` method in main.
 - Bugs/Issues: When it came to edge cases like unfinished parenthesis or finishing a parenthesis that never started, I struggled with a way to keep track of them. It also got pretty confusing keep setting `nextOp` to true or false depending on the value of the token, but the instructions kinda helped with that.
-- Tested:
+- Tested: I tested the `isValidInfix` method and everything looked great.
 - Fixed/Improved: I decided to use and int called `equilibrium` since I can add for every `(` and subtract for every `)` resulting in something like an equilibrium in bio, always being balanced and equal to 0, otherwise returning false.
+
+Entry 03/27/2026
+- Worked on: Tested `isValidInfix` and `isValidPostfix` methods in the main function.
+- Bugs/Issues: The `isValidInfix` was good, but when inputting `4 5 +`, which is a valid postfix, it would return neither and invalid. 
+- Tested: I Tested the `isValidInfix` and `isValidPostfix` methods, but commented out some parts in the main method that would give errors.
+- Fixed/Improved: I figured out that at the very end of my `isValidPostfix` method I was only returning true if the number of digits are exactly 1 more than the number of operators AND if the number of operators are strictly greater than 1. So all I needed to do was change 1 to 0, since we know there are still valid postfix with only 1 operator.

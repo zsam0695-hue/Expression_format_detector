@@ -77,7 +77,7 @@ bool isValidPostfix(const vector<Token>& tokens) {
             return false;
 
     }
-    return digitCount - 1 == opCount && opCount > 1;
+    return digitCount - 1 == opCount && opCount > 0;
 }
 
 bool isValidInfix(const vector<Token>& tokens) {
@@ -144,17 +144,17 @@ int main() {
         cout << "FORMAT: POSTFIX\n";
        // cout << "RESULT: " << evalPostfix(tokens) << "\n";
     }
-    /*
+
     else if (isValidInfix(tokens)) {
-        vector<Token> postfix = infixToPostfix(tokens);
-        cout << "FORMAT: INFIX\n";
+        //vector<Token> postfix = infixToPostfix(tokens);
+        cout << "FORMAT: INFIX\n";/*
         cout << "POSTFIX: ";
         for (const auto& t : postfix) {
             cout << t.value << " ";
         }
         cout << "\n";
-        cout << "RESULT: " << evalPostfix(postfix) << "\n";
-    }*/
+        cout << "RESULT: " << evalPostfix(postfix) << "\n";*/
+    }
     else {
         cout << "FORMAT: NEITHER\n";
         cout << "ERROR: invalid expression\n";
