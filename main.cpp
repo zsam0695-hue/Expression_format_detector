@@ -120,6 +120,24 @@ bool isValidInfix(const vector<Token>& tokens) {
 vector<Token> infixToPostfix(const vector<Token>& tokens) {
     vector<Token> output;
     // TODO
+    ArrayStack<string> operators;
+    for (Token t: tokens) {
+        if (isdigit(t.value[0]))
+            output.push_back(t)
+        else if (isOperator(t.value)) {
+            //something with operators and their precedence because * and / have a higher value than + and -
+        }
+        else if (t.value == "(")
+            operators.push(t.value);
+        else if (t.value == ")") {
+            while (!operators.empty() && operators.top() != "(") {
+                output.push_back({operators.top()});
+                operators.pop();
+            }
+            if (!operators.empty())
+                operators.pop(); //to remove any (
+        }
+    }
     return output;
 }
 

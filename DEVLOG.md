@@ -44,3 +44,10 @@ Entry 03/27/2026
 - Bugs/Issues: The `isValidInfix` was good, but when inputting `4 5 +`, which is a valid postfix, it would return neither and invalid. 
 - Tested: I Tested the `isValidInfix` and `isValidPostfix` methods, but commented out some parts in the main method that would give errors.
 - Fixed/Improved: I figured out that at the very end of my `isValidPostfix` method I was only returning true if the number of digits are exactly 1 more than the number of operators AND if the number of operators are strictly greater than 1. So all I needed to do was change 1 to 0, since we know there are still valid postfix with only 1 operator.
+
+Entry 03/29/2026
+- Worked on: I started on writing some of the `infixToPostfix` method.
+- Bugs/Issues: No bugs or issues that I have come upon yet, also since I haven't finished the method.
+- Tested: Couldn't really test anything yet because I haven't finished the `infixToPostfix` method yet.
+- Fixed/Improved: I am currently in the process of sleeping on the rest of the `infixToPostfix` method since I'm a little stuck on how to go about the coding logic. I'll see if I can think of a different approach tomorrow.
+
