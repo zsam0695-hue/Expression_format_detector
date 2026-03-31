@@ -46,7 +46,7 @@ Entry 03/30/2026
 - Fixed/Improved: I just fixed the tiny bug, and after a good amount of thinking, I was able to come up with a logic for when the infix has an operator and how to incorporate the precedence.
 
 Entry 03/31/2026
-- Worked on: I completed the `evalPostfix` method.
-- Bugs/Issues: 
-- Tested: 
-- Fixed/Improved: 
+- Worked on: I completed the `evalPostfix` method and used the `ArrayStack<double>` called `stack` to temporarily store the numbers in, and anytime there's an operator I take the first two out of the stack and add, subtract, multiply, or divide depending on the operator. Then push that updated value back to the stack to iterate again until we're done.
+- Bugs/Issues: No bugs or issues.
+- Tested: I tested the `evalPostfix` method, and retested everything to double-check and make sure there's no leftover bugs or issues.
+- Fixed/Improved: Nothing needed fixing or improving.

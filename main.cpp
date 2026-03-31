@@ -189,7 +189,7 @@ int main() {
 
     if (isValidPostfix(tokens)) {
         cout << "FORMAT: POSTFIX\n";
-       // cout << "RESULT: " << evalPostfix(tokens) << "\n";
+        cout << "RESULT: " << evalPostfix(tokens) << "\n";
     }
 
     else if (isValidInfix(tokens)) {
@@ -200,7 +200,7 @@ int main() {
             cout << t.value << " ";
         }
         cout << "\n";
-       // cout << "RESULT: " << evalPostfix(postfix) << "\n";
+        cout << "RESULT: " << evalPostfix(postfix) << "\n";
     }
     else {
         cout << "FORMAT: NEITHER\n";
