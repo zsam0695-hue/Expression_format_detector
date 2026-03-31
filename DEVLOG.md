@@ -1,15 +1,3 @@
-Your DEVLOG.md must include dated entries describing:
-
-- What you worked on during each session.
-
-- Bugs or issues you encountered.
-
-- How you tested your code.
-
-- What you fixed or improved.
-
-This log is part of the grade and is used to assess your development process, not just the final result.
-
 Entry 03/18/2026
 - Initial entry
 - Copied all files like `main.cpp` and `ArrayStack.h` over on to my code and made a `DEVLOG.md` file as well.
@@ -56,3 +44,9 @@ Entry 03/30/2026
 - Bugs/Issues: At first, when running, I got an error. But I realized it was only because I had forgotten to put a `;` in one of the lines.
 - Tested: I tested the `infixToPostfix` method with many different inputs, and nothing wrong!
 - Fixed/Improved: I just fixed the tiny bug, and after a good amount of thinking, I was able to come up with a logic for when the infix has an operator and how to incorporate the precedence.
+
+Entry 03/31/2026
+- Worked on: I completed the `evalPostfix` method.
+- Bugs/Issues: 
+- Tested: 
+- Fixed/Improved: 
