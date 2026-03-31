@@ -123,21 +123,32 @@ vector<Token> infixToPostfix(const vector<Token>& tokens) {
     ArrayStack<string> operators;
     for (Token t: tokens) {
         if (isdigit(t.value[0]))
-            output.push_back(t)
+            output.push_back(t);
         else if (isOperator(t.value)) {
-            //something with operators and their precedence because * and / have a higher value than + and -
+            while (!operators.empty() && isOperator(operators.top()) && precedence(operators.top()) >= precedence(t.value)) {
+                output.push_back(Token(operators.top()));
+                operators.pop();
+            }
+            operators.push(t.value);
         }
         else if (t.value == "(")
             operators.push(t.value);
         else if (t.value == ")") {
             while (!operators.empty() && operators.top() != "(") {
-                output.push_back({operators.top()});
+                output.push_back(Token(operators.top()));
                 operators.pop();
             }
             if (!operators.empty())
                 operators.pop(); //to remove any (
         }
     }
+
+    //any leftover operators
+    while (!operators.empty()) {
+        output.push_back(Token(operators.top()));
+        operators.pop();
+    }
+
     return output;
 }
 
@@ -164,14 +175,14 @@ int main() {
     }
 
     else if (isValidInfix(tokens)) {
-        //vector<Token> postfix = infixToPostfix(tokens);
-        cout << "FORMAT: INFIX\n";/*
+        vector<Token> postfix = infixToPostfix(tokens);
+        cout << "FORMAT: INFIX\n";
         cout << "POSTFIX: ";
         for (const auto& t : postfix) {
             cout << t.value << " ";
         }
         cout << "\n";
-        cout << "RESULT: " << evalPostfix(postfix) << "\n";*/
+       // cout << "RESULT: " << evalPostfix(postfix) << "\n";
     }
     else {
         cout << "FORMAT: NEITHER\n";

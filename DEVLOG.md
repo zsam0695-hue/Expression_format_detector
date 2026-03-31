@@ -51,3 +51,8 @@ Entry 03/29/2026
 - Tested: Couldn't really test anything yet because I haven't finished the `infixToPostfix` method yet.
 - Fixed/Improved: I am currently in the process of sleeping on the rest of the `infixToPostfix` method since I'm a little stuck on how to go about the coding logic. I'll see if I can think of a different approach tomorrow.
 
+Entry 03/30/2026
+- Worked on: I finished and tested the `infixToPostfix` method.
+- Bugs/Issues: At first, when running, I got an error. But I realized it was only because I had forgotten to put a `;` in one of the lines.
+- Tested: I tested the `infixToPostfix` method with many different inputs, and nothing wrong!
+- Fixed/Improved: I just fixed the tiny bug, and after a good amount of thinking, I was able to come up with a logic for when the infix has an operator and how to incorporate the precedence.
